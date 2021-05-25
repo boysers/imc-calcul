@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>imc</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="page">
+      <h2>IMC</h2>
+      <form class="form" id="form">
+        <div class="input">
+          <input id="userSize" type="number" placeholder="Taille" step="1" />
+          <span class="info">cm</span>
+        </div>
+        <div class="input">
+          <input id="userPoids" type="number" placeholder="Poids" step=".1" />
+          <span class="info">kg</span>
+        </div>
+        <button class="button" id="ajouter">Calculer</button>
+        <div id="pagePopup" class="popup">
+          <p>Poids et Taille invalide</p>
+          <button id="ok">OK</button>
+        </div>
+      </form>
+      <p>Votre IMC est de : <span id="imc"></span></p>
+      <div class="history">
+        <h4>Dernier test</h4>
+        <p id="lastDate"></p>
+        <ul>
+          <li>Taille : <span id="lastSize"></span></li>
+          <li>Poids : <span id="lastPoids"></span></li>
+          <li>IMC : <span id="lastImc"></span></li>
+        </ul>
+      </div>
+      <button id="delete" class="delete">reset</button>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
