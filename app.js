@@ -3,7 +3,7 @@ function calcImc() {
   const userSize = document.getElementById("userSize");
   const button = document.getElementById("ajouter");
   const imc = document.getElementById("imc");
-  const page = document.getElementById("page");
+  const app = document.getElementById("app");
   const form = document.getElementById("form");
 
   button.addEventListener("click", function (e) {
@@ -69,13 +69,13 @@ function calcImc() {
   });
 
   button.addEventListener("mouseenter", function (e) {
-    page.style.border = "2px solid #f74857";
+    app.style.border = "2px solid #f74857";
     localStorageClear.style.backgroundColor = "#f74857";
     localStorageClear.style.color = "#fff";
   });
 
   button.addEventListener("mouseleave", function (e) {
-    page.style.border = "2px solid #ec969e";
+    app.style.border = "2px solid #ec969e";
     localStorageClear.style.backgroundColor = "#ec969e";
     localStorageClear.style.color = "#000";
   });
@@ -176,13 +176,13 @@ localStorageClear.addEventListener("click", function (e) {
 
 function clearApp() {
   localStorageClear.addEventListener("mouseenter", function (e) {
-    page.style.border = "2px solid #f74857";
+    app.style.border = "2px solid #f74857";
     localStorageClear.style.backgroundColor = "#f74857";
     localStorageClear.style.color = "#fff";
   });
 
   localStorageClear.addEventListener("mouseleave", function (e) {
-    page.style.border = "2px solid #ec969e";
+    app.style.border = "2px solid #ec969e";
     localStorageClear.style.backgroundColor = "#ec969e";
     localStorageClear.style.color = "#000";
   });
