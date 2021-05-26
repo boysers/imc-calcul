@@ -40,7 +40,10 @@ h2 {
 
 body {
   font-size: 1.6rem;
-  background: rgb(50, 50, 50);
+}
+
+#page {
+  background: linear-gradient(25deg, #000, #82005a);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -49,7 +52,7 @@ body {
   flex-direction: column;
 }
 
-#page {
+#app {
   position: relative;
   width: 220px;
   border-radius: 20px;
@@ -172,13 +175,15 @@ button:hover {
 
 *::after {
   position: absolute;
-  padding-left: 4px;
   font-weight: bold;
+  margin-left: .5rem;
 }
 
 .abuse::after {
-  content: "Abuses pas frère";
-  color: #000;
+  content: "Hein ?";
+  color: rgb(0, 0, 0);
+  background-color: white;
+  padding: 0 .5rem;
 }
 
 .obesiteSevere::after {
@@ -216,4 +221,8 @@ li::marker {
 
 ul {
   padding-left: 16px;
+}
+
+#lastDate {
+  padding-top: .2rem;
 }
