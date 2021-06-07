@@ -23,6 +23,10 @@ h1 {
 p {
     padding-top: 0.5rem;
 }
+a {
+    text-decoration: none;
+}
+
 .container {
     height: 100vh;
     display: flex;
@@ -70,4 +74,28 @@ p {
 #userImc {
     padding: 5px;
     font-size: 1.05rem;
+}
+
+.github {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: .6rem;
+}
+
+.github:hover *{
+    color: #afb5bb;
+    fill: #afb5bb;
+}
+
+.github span {
+    color: #f0f6fc;
+    padding-left: .4rem;
+    font-weight: 500;
+}
+
+.github svg {
+    fill: #f0f6fc;
 }
