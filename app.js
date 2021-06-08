@@ -7,7 +7,7 @@ let yourImc = "";
 let inputTaille = document.querySelector("#inputTaille");
 let inputPoids = document.querySelector("#inputPoids");
 let btnCalc = document.querySelector("#btnCalc");
-let userImc = document.querySelector("#userImc");
+let textError = document.querySelector("#textError");
 
 /* ----- Les Functions ----- */
 // Calcul imc: t = taille en cm, p = poids en kg et m convertit la taille en mètre
@@ -27,6 +27,7 @@ function addText(element, message, valeur) {
         element.innerHTML = message ? message : "erreur";
         element.style.color = "#FF8080";
         element.style.background = "#290000";
+        element.classList.add("animation");
     } else {
         element.innerHTML = message ? message : "Correct";
         element.style.color = "";
@@ -35,7 +36,7 @@ function addText(element, message, valeur) {
     return addHtml;
 }
 
-function addElError(elError, elCorrect) {
+function addError(elError, elCorrect) {
     if (elError) {
         elError.classList.add("error");
     }
@@ -53,33 +54,33 @@ function inputImc() {
 
     switch (true) {
         case !taille && !poids:
-            addText(userImc, "Taille et poids ne sont pas définis", false);
+            addText(textError, "Taille et poids ne sont pas définis", false);
 
-            addElError(inputTaille, null);
-            addElError(inputPoids, null);
+            addError(inputTaille, null);
+            addError(inputPoids, null);
             break;
         case !taille:
-            addText(userImc, "Taille n'est pas définie", false);
+            addText(textError, "Taille n'est pas définie", false);
 
-            addElError(inputTaille, inputPoids);
+            addError(inputTaille, inputPoids);
             break;
         case !poids:
-            addText(userImc, "Poids n'est pas définie", false);
+            addText(textError, "Poids n'est pas définie", false);
 
-            addElError(inputPoids, inputTaille);
+            addError(inputPoids, inputTaille);
             break;
         case yourImc > 61 || yourImc < 7:
-            addText(userImc, "L'imc est incorrect", false);
+            addText(textError, "L'imc est incorrect", false);
 
-            addElError(inputTaille, undefined);
-            addElError(inputPoids, undefined);
+            addError(inputTaille, undefined);
+            addError(inputPoids, undefined);
 
             break;
         default:
-            addText(userImc, "Votre Imc est de " + yourImc, true);
+            addText(textError, "Votre Imc est de " + yourImc, true);
 
-            addElError(undefined, inputTaille);
-            addElError(undefined, inputPoids);
+            addError(undefined, inputTaille);
+            addError(undefined, inputPoids);
     }
 }
 
