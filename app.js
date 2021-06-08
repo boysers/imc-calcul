@@ -35,28 +35,51 @@ function addText(element, message, valeur) {
     return addHtml;
 }
 
+function addElError(elError, elCorrect) {
+    if (elError) {
+        elError.classList.add("error");
+    }
+    if (elCorrect) {
+        elCorrect.classList.remove("error");
+    }
+}
+
 // Prends les valeurs dans les inputs et les utilises dans la function imc
 function inputImc() {
     taille = parseInt(inputTaille.value);
     poids = parseInt(inputPoids.value);
 
-    yourImc = imc(taille, poids)
+    yourImc = imc(taille, poids);
 
     switch (true) {
         case !taille && !poids:
             addText(userImc, "Taille et poids ne sont pas définis", false);
-            break
+
+            addElError(inputTaille, null);
+            addElError(inputPoids, null);
+            break;
         case !taille:
             addText(userImc, "Taille n'est pas définie", false);
-            break
+
+            addElError(inputTaille, inputPoids);
+            break;
         case !poids:
             addText(userImc, "Poids n'est pas définie", false);
-            break
+
+            addElError(inputPoids, inputTaille);
+            break;
         case yourImc > 61 || yourImc < 7:
             addText(userImc, "L'imc est incorrect", false);
-            break
-        default : 
+
+            addElError(inputTaille, undefined);
+            addElError(inputPoids, undefined);
+
+            break;
+        default:
             addText(userImc, "Votre Imc est de " + yourImc, true);
+
+            addElError(undefined, inputTaille);
+            addElError(undefined, inputPoids);
     }
 }
 

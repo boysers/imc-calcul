@@ -8,23 +8,26 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
     -moz-appearance: textfield;
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 html {
-    font-family: Arial, sans-serif;
-}
-h1 {
-    text-align: center;
-    padding-bottom: 0.2rem;
-}
-p {
-    padding-top: 0.5rem;
+    font-family: "Roboto", sans-serif;
 }
 a {
     text-decoration: none;
+}
+input {
+    border: none;
+}
+input:focus {
+    outline: none;
+}
+button:hover {
+    cursor: pointer;
 }
 
 .container {
@@ -41,7 +44,6 @@ a {
     color: rgb(255, 255, 255);
 }
 .calculImc {
-    width: 400px;
     padding: 4rem;
     background: linear-gradient(
         45deg,
@@ -50,52 +52,94 @@ a {
     );
     border-radius: 0 5rem 0 5rem;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.5);
-}
-.input {
-    position: relative;
-}
-.input input {
-    width: 100%;
-    font-size: inherit;
-    padding: 0.2rem;
+    transform: scale(1.4);
 }
 .info {
-    color: #000;
     position: absolute;
-    top: 15%;
-    right: 0;
-    padding-right: 5px;
+    top: 0.4rem;
+    right: 0.5rem;
 }
-.bouton {
-    width: 100%;
-    height: 2rem;
-    font-size: 1rem;
-}
-#userImc {
-    padding: 5px;
-    font-size: 1.05rem;
-}
-
 .github {
     display: flex;
     align-items: center;
     position: absolute;
     top: 0;
     right: 0;
-    margin: .6rem;
+    margin: 0.6rem;
 }
-
-.github:hover *{
+.github:hover * {
     color: #afb5bb;
     fill: #afb5bb;
 }
-
 .github span {
     color: #f0f6fc;
-    padding-left: .4rem;
+    padding-left: 0.4rem;
     font-weight: 500;
 }
-
 .github svg {
     fill: #f0f6fc;
+}
+.input {
+    position: relative;
+    margin-bottom: 1rem;
+}
+.input input {
+    width: 100%;
+    font-size: inherit;
+    padding: 0.4rem;
+    padding-right: 2rem;
+    border-bottom: 0.125rem solid white;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.2);
+    color: inherit;
+}
+.input input:hover {
+    border-bottom: 0.125rem solid #ff007b;
+}
+.input input:focus {
+    border-bottom: 0.125rem solid #ff007b;
+    background: rgba(255, 0, 123, 0.2);
+}
+.imc {
+    width: 100%;
+    padding-top: 0.5rem;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 0.9rem;
+}
+.btn-ctr {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+.bouton {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    width: 75%;
+    border: none;
+    border: solid 0.1rem #fff;
+    transition: all 0.7s;
+    border-radius: 3px;
+    color: #fff;
+    background: none;
+    padding: 0.7rem;
+}
+.bouton:hover {
+    box-shadow: inset -5.5em 0 0 0 #ff007b, inset 5.5em 0 0 0 #ff007b;
+}
+
+@media screen and (max-width: 800px) {
+    .calculImc {
+        transform: scale(1);
+    }
+}
+@media screen and (max-width: 430px) {
+    .calculImc {
+        transform: scale(0.8);
+    }
+}
+
+.error {
+    background: rgba(255, 0, 0, 0.5) !important;
 }
