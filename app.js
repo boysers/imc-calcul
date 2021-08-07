@@ -21,13 +21,13 @@ function imc(t, p) {
 // Ajoute dans le html le résultat ou l'erreur si la valeur est vide
 function addText(element, message, valeur) {
     let addHtml = "";
+    element.classList.add("animation");
 
     // Regarde si valeur est vraie ou faux
     if (!valeur) {
         element.innerHTML = message ? message : "erreur";
         element.style.color = "#FF8080";
         element.style.background = "#290000";
-        element.classList.add("animation");
     } else {
         element.innerHTML = message ? message : "Correct";
         element.style.color = "";
@@ -45,6 +45,30 @@ function addError(elError, elCorrect) {
     }
 }
 
+function checkImc(value) {
+    let textImc = ""
+    switch (true) {
+        case value >= 40:
+            textImc = "obésité morbide";
+            break;
+        case value >= 35:
+            textImc = "obésité sévère";
+            break;
+        case value >= 30:
+            textImc = "obésité modérée";
+            break;
+        case value >= 25:
+            textImc = 'surpoids';
+            break;
+        case value >= 18.5:
+            textImc = "poids normal";
+            break;
+        default:
+            textImc = "maigreur";
+    }
+    return textImc;
+}
+
 // Prends les valeurs dans les inputs et les utilises dans la function imc
 function inputImc() {
     taille = parseInt(inputTaille.value);
@@ -54,33 +78,34 @@ function inputImc() {
 
     switch (true) {
         case !taille && !poids:
-            addText(textError, "Taille et poids ne sont pas définis", false);
+            addText(textError, "Votre taille/poids ne sont pas définis", false);
 
             addError(inputTaille, null);
             addError(inputPoids, null);
             break;
         case !taille:
-            addText(textError, "Taille n'est pas définie", false);
+            addText(textError, "Votre taille n'est pas définie", false);
 
             addError(inputTaille, inputPoids);
             break;
         case !poids:
-            addText(textError, "Poids n'est pas définie", false);
+            addText(textError, "Votre poids n'est pas défini", false);
 
             addError(inputPoids, inputTaille);
             break;
         case yourImc > 61 || yourImc < 7:
             addText(textError, "L'imc est incorrect", false);
 
-            addError(inputTaille, undefined);
-            addError(inputPoids, undefined);
+            addError(inputTaille, null);
+            addError(inputPoids, null);
 
             break;
         default:
             addText(textError, "Votre Imc est de " + yourImc, true);
+            textError.appendChild(document.createTextNode(` | ${checkImc(yourImc)}`));
 
-            addError(undefined, inputTaille);
-            addError(undefined, inputPoids);
+            addError(null, inputTaille);
+            addError(null, inputPoids);
     }
 }
 

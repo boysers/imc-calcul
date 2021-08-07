@@ -14,6 +14,9 @@ input[type="number"] {
     padding: 0;
     box-sizing: border-box;
 }
+::selection {
+    background-color: #ff007b;
+  }
 html {
     font-family: "Roboto", sans-serif;
 }
@@ -60,8 +63,11 @@ button:hover {
 }
 .info {
     position: absolute;
-    top: 0.4rem;
-    right: 0.5rem;
+    top: 0;
+    right: 0;
+    user-select: none;
+    padding: .35rem 0;
+    padding-right: .5rem;
 }
 .github {
     display: flex;
@@ -123,20 +129,21 @@ button:hover {
     margin: 0.5rem 0;
 }
 .bouton {
-    font-size: 1rem;
+    font-size: 1.4rem;
     font-weight: 700;
     letter-spacing: 1.3px;
     width: 75%;
     border: none;
-    border: solid 0.1rem #fff;
-    transition: all 0.7s;
     border-radius: 3px;
     color: #fff;
-    background: none;
+    background-color: rgba(255, 255, 255, 0.25);
     padding: 0.7rem;
+    transition: all 0.45s;
+    user-select: none;
 }
 .bouton:hover {
-    box-shadow: inset 0 3em 0 0 #ff007b;
+    color: #fff;
+    background-color: #ff007b;
 }
 
 @media screen and (max-width: 800px) {
